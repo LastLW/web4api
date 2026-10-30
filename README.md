@@ -273,19 +273,6 @@ MiMo 的思考内容自动解析：Anthropic 输出为 `thinking` 块，OpenAI �
 | 统一入口返回 401 | 使用管理台首页显示的统一 Key；各服务自己的 Key 也可以 |
 | DeepSeek 提示 token 无效/过期 | 管理台 DeepSeek 卡片重新点「浏览器登录」抓一次即可（一般 30 天左右一次） |
 
-手动发布：
-
-```bash
-git init
-git add .
-git commit -m "web4api: 网页版逆向 API 本地中转（DeepSeek/千问/豆包/MiMo）"
-git remote add origin https://github.com/<你的用户名>/web4api.git
-git branch -M main
-git push -u origin main
-```
-
-发布前最后检查：`services/*/config.json` 不在暂存区；`cookie*.txt` 已删除；
-`.github_token` 不在暂存区。
 
 ## 免责声明
 
