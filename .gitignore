@@ -1,0 +1,36 @@
+# 真实凭证与本地配置 —— 永远不要提交
+**/config.json
+**/config.json.corrupt-*
+**/*.tmp
+cookie.txt
+*.log
+
+# 统一管理台：浏览器登录资料 / 抓包数据
+gateway/browser_data/
+gateway/.cache/
+
+# 操作日志（记录了所有管理操作）
+**/oplog.json
+
+# GitHub 上传脚本的令牌（PAT）
+.github_token
+
+# 本地截图（可能含真实 Key 等敏感信息）
+.screenshots/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# PyInstaller 构建产物
+build/
+dist/
+
+# IDE
+.idea/
+.vscode/
+
+# 环境变量文件
+.env
+.env.*

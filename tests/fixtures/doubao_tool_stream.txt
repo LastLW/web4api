@@ -1,0 +1,187 @@
+id: 0
+event: SSE_HEARTBEAT
+data: {}
+
+id: 0
+event: SSE_ACK
+data: {"query_list":[{"question_id":"54878724818841602","local_message_id":"249c303d-0bfc-4703-a196-5384cdab9382","message_index":1}],"ack_client_meta":{"conversation_id":"38440885212675842","local_conversation_id":"local_1788915704837","conversation_type":3,"section_id":"38440885212676098","conversation_info":{"conversation_id":"38440885212675842","conversation_type":3,"creator_id":"1800355860973188","name":"新对话","image":{"image_thumb":{"url":"https://p11-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/9739dcba7742cf300a1d0eb127a11067.png~tplv-a9rns2rl98-image-qvalue.png?lk3s=8e244e95&rcl=2026090909014524EFBA25AF7434235019&rrcfp=bf2e6f99&x-expires=1791507705&x-signature=TQahd9KjJy8oRP4k3jkL4WBmGb4%3D"},"image_ori":{"url":"https://p11-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/9739dcba7742cf300a1d0eb127a11067.png~tplv-a9rns2rl98-image-qvalue.png?lk3s=8e244e95&rcl=2026090909014524EFBA25AF7434235019&rrcfp=bf2e6f99&x-expires=1791507705&x-signature=TQahd9KjJy8oRP4k3jkL4WBmGb4%3D"}},"participant_count":2,"human_count":1,"tenant_id":0,"biz_id":0,"status":1,"create_time":1788915705,"update_time":1788915705,"extra":"{\"inner_app_id\":\"497858\",\"inner_cluster\":\"default\",\"inner_did\":\"7683206949127063081\",\"inner_env\":\"prod\",\"inner_flow_app_variant\":\"doubao\",\"inner_is_tour\":\"false\",\"inner_log_id\":\"2026090909014524EFBA25AF7434235019\",\"inner_pc_version\":\"3.36.0\",\"inner_platform\":\"web\",\"inner_real_app_id\":\"497858\",\"inner_samantha_web\":\"true\",\"inner_tea_uuid\":\"7683206975173363210\",\"inner_tt_wid\":\"7683204329947547174\",\"inner_user_ip\":\"58.19.27.124\",\"inner_version_name\":\"\",\"is_default_name\":\"true\",\"local_conversation_id\":\"local_1788915704837\",\"log_id\":\"2026090909014524EFBA25AF7434235019\",\"mode_id\":\"1\",\"model_item_key\":\"0\",\"reasoning_effort\":\"3\",\"reply_mode\":\"0\"}","msg_cursor":1,"bot_type":3,"retention_cursor":1,"last_read_index":0,"latest_index":0,"last_section_id":"38440885212676098","input_left_button_style":1,"review_status":2,"create_scene":0,"create_channel":0,"badge_count":0,"read_badge_count":0,"latest_artifact":1}},"timeout_conf":{"answer_first_pending_time":180000,"packet_interval_time":120000,"max_retry_count":10,"max_retry_duration_ms":21600000,"retry_interval_ms":1000}}
+
+id: 1
+event: FULL_MSG_NOTIFY
+data: {"message":{"conversation_id":"38440885212675842","message_id":"54878724818841602","message_body_version":1,"sender_id":"1800355860973188","user_type":1,"content_type":9999,"content":"[{\"block_type\":10000,\"block_id\":\"13663ced-406d-4609-82a9-f458a2274a02\",\"content\":{\"text_block\":{\"text\":\"Create a file at /tmp/doubao_test.py that prints hello doubao. You MUST use the write_file tool.\"}}}]","index_in_conv":1,"create_time":1788915705,"biz_content_type":"","sec_sender":"MS4wLjABAAAA0tmTxwuowcW2Rjlxips1HmNZXYrAtLf1cDKuJ_2_g5QvZUpqg8V3bm23LehzOBYS","content_block":[{"block_type":10000,"block_id":"13663ced-406d-4609-82a9-f458a2274a02","content":{"text_block":{"text":"Create a file at /tmp/doubao_test.py that prints hello doubao. You MUST use the write_file tool."}},"is_finish":false}],"tts_content":"","update_time":1788915705,"ext":{"is_finish":"1","inner_region":"CN","inner_bot_id":"0","inner_user_ip":"58.19.27.124","inner_platform":"web","input_skill":"{\"skill_id\":\"0\",\"skill_type\":0}","brief":"Create a file at /tmp/doubao_test.py that prints hello doubao. You MUST use the write_file tool.","llm_model_type":"38","collection_id":"","reply_unique_key":"1be85a41-6450-4d5c-be4f-f7b7b81b4a89","client_report_scene":"gui","attachment_scene":"1","use_deep_think":"0","sub_conv_firstmet_type":"1","inner_did":"7683206949127063081","chat_next":"1","ugc_voice_id":"104","use_content_block":"1","section_tag_1h":"38440885212676098_2026090909","commerce_credit_config_enable":"0","read_conv_version":"1788915705565333","bot_source":"BotStudio","agent_mode":"2","chat_id":"54878724818841602","is_ai_playground":"false","model_type":"38","group":"1788915705","pre_read_conv_version":"1788915705565333","speaker_id":"zh_female_wenroutaozi_uranus_bigtts","cot_switch":"0","search_engine_type":"4","bot_id":"7338286299411103781","update_version_code":"0","message_from":"InputBox","inner_app_id":"497858","inner_log_id":"2026090909014524EFBA25AF7434235019","chat_ability":"{}"},"local_message_id":"249c303d-0bfc-4703-a196-5384cdab9382","section_id":"38440885212676098","bot_reply_message_id":"0","fetch_token":"54878724818841602"},"message_attr":{"badge_count":1,"read_badge_count":1,"read_conv_version":1788915705565333,"pre_read_conv_version":1788915705565333}}
+
+id: 3
+event: STREAM_MSG_NOTIFY
+data: {"content":{"content_block":[{"block_type":10008,"block_id":"10279213109133314","content":{"code_block":{"code":"```python type=\"interpreter\"\nwith open(\"/","icon_url":"https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsm/ljhwZthlaukjlkulzlp/tool_icon/Code.png","icon_url_dark":"https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsm/ljhwZthlaukjlkulzlp/tool_icon/Code-1.png","summary":"正在运行代码","type":1,"extend_fields":{}}},"is_finish":false,"patch_type":1}],"content_status":100,"ext":{"input_skill":"{\"skill_id\":\"0\",\"skill_type\":0}","need_deep_think":"0","tea_tags_time_cost":"{\"ack_cost_time\":\"186\",\"agent_id\":\"19457456070409730\",\"agent_name\":\"豆包\",\"first_packet_cost_time\":\"1208\",\"llm_intention\":\"seed_main\",\"llm_intention_detail\":\"default\"}","review_scenario_id":"200000000179","agent_hub_model_family_name":"","attachment_scene":"1","cot_switch":"0","model_type":"38","reply_unique_key":"1be85a41-6450-4d5c-be4f-f7b7b81b4a89","use_display_ctn":"1","agent_name":"豆包","chat_ability":"{}","inner_platform":"web","tts":"","agent_id":"19457456070409730","model_id":"38","agent_mode":"2","inner_region":"CN","inner_log_id":"2026090909014524EFBA25AF7434235019","inner_did":"7683206949127063081","agent_intention":"seed_main","before_content_type":"1","z_intervene_id":"","chat_next":"1","section_tag_1h":"38440885212676098_2026090909","client_report_scene":"gui","inner_app_id":"497858","z_intervene_result":"","llm_model_type":"38","update_version_code":"0","detailed_model_name":"","inner_user_ip":"58.19.27.124","llm_intention_detail":"default","seed_intention":"seed_main","bot_state":"{\"bot_id\":\"7338286299411103781\",\"bot_name\":\"豆包\",\"agent_name\":\"豆包\",\"agent_id\":\"19457456070409730\",\"agent_psm\":\"flow.agent.shell\",\"intent_agent_name\":\"Agent-Chat\"}","is_general_task":"0","use_content_block":"1","llm_intention":"seed_main","chat_id":"54878724818841602"},"content_type":9999},"meta":{"message_id":"54878724818844418","conversation_id":"38440885212675842","section_id":"38440885212676098","sender_id":"7338286299411103781","user_type":2,"create_time":1788915706,"index_in_conv":2,"bot_reply_message_id":"54878724818841602","local_conversation_id":"local_1788915704837"},"attr":{"reply_unique_key":"1be85a41-6450-4d5c-be4f-f7b7b81b4a89"}}
+
+id: 5
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10008,"block_id":"10279213109133314","content":{"code_block":{"code":"tmp/doubao_test.py\", \"w\")","icon_url":"https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsm/ljhwZthlaukjlkulzlp/tool_icon/Code.png","icon_url_dark":"https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsm/ljhwZthlaukjlkulzlp/tool_icon/Code-1.png","summary":"正在运行代码","type":1,"extend_fields":{}}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 7
+event: CHUNK_DELTA
+data: {"code":" as f:\n    f.write('print(\""}
+
+id: 9
+event: CHUNK_DELTA
+data: {"code":"hello doubao\")\\n')\n```"}
+
+id: 14
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10008,"block_id":"10279213109133314","content":{"code_block":{"icon_url":"https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsm/ljhwZthlaukjlkulzlp/tool_icon/Code.png","icon_url_dark":"https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsm/ljhwZthlaukjlkulzlp/tool_icon/Code-1.png","summary":"已完成代码运行","type":1,"extend_fields":{}}},"is_finish":true,"patch_type":1}]}}]}
+
+id: 18
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"10279213109256706","content":{"text_block":{"text":"The"}},"is_finish":false,"patch_type":1}]}},{"patch_object":50,"patch_type":1,"patch_value":{"ext":{"msg_scene":"rv_two_col","perf_mark":"{\"marks\":[{\"ev_name\":\"answer_first_token\",\"ev_type\":\"query_duration\"}]}","review_scenario_id":"4085066754","is_pro":"0"}}}]}
+
+id: 19
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"The"}}]}
+
+id: 21
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"10279213109256706","content":{"text_block":{"text":" file"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 22
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":" file"}}]}
+
+id: 24
+event: CHUNK_DELTA
+data: {"text":" `/"}
+
+id: 25
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":" `/"}}]}
+
+id: 27
+event: CHUNK_DELTA
+data: {"text":"tmp"}
+
+id: 28
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"tmp"}}]}
+
+id: 30
+event: CHUNK_DELTA
+data: {"text":"/d"}
+
+id: 31
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"/d"}}]}
+
+id: 33
+event: CHUNK_DELTA
+data: {"text":"ou"}
+
+id: 34
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"ou"}}]}
+
+id: 36
+event: CHUNK_DELTA
+data: {"text":"bao"}
+
+id: 37
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"bao"}}]}
+
+id: 39
+event: CHUNK_DELTA
+data: {"text":"_test"}
+
+id: 40
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"_test"}}]}
+
+id: 42
+event: CHUNK_DELTA
+data: {"text":".py` has been created successfully"}
+
+id: 43
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":".py` has been created successfully"}}]}
+
+id: 45
+event: CHUNK_DELTA
+data: {"text":".\nContent of the file"}
+
+id: 46
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":".\nContent of the file"}}]}
+
+id: 48
+event: CHUNK_DELTA
+data: {"text":":\n```python\nprint"}
+
+id: 49
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":":\n```python\nprint"}}]}
+
+id: 51
+event: CHUNK_DELTA
+data: {"text":"(\"hello doubao\")\n"}
+
+id: 52
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"(\"hello doubao\")\n"}}]}
+
+id: 54
+event: CHUNK_DELTA
+data: {"text":"```\nWhen executed, it"}
+
+id: 55
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"```\nWhen executed, it"}}]}
+
+id: 57
+event: CHUNK_DELTA
+data: {"text":" outputs: `hello doubao"}
+
+id: 58
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":" outputs: `hello doubao"}}]}
+
+id: 60
+event: CHUNK_DELTA
+data: {"text":"`."}
+
+id: 61
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"`."}}]}
+
+id: 64
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"10279213109256706","content":{"text_block":{}},"is_finish":true,"patch_type":1}]}}]}
+
+id: 65
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":3,"patch_type":2,"patch_value":{}},{"patch_object":50,"patch_type":1,"patch_value":{"ext":{"is_finish":"1","perf_mark":"{\"marks\":[{\"ev_name\":\"task_finish\",\"ev_type\":\"query_duration\"}]}"}}}]}
+
+id: 66
+event: SSE_REPLY_END
+data: {"end_type":1,"msg_finish_attr":{"msgid":"54878724818844418","badge_count":2,"read_badge_count":1,"read_conv_version":1788915706584007,"pre_read_conv_version":1788915706584007,"brief":"The file  /tmp/doubao_test.py  has been created successfully.Content of the file:```pythonprint(\"hello doubao\")"}}
+
+id: 67
+event: SSE_REPLY_END
+data: {"end_type":2,"answer_finish_attr":{"has_suggest":true}}
+
+id: 67
+event: SSE_HEARTBEAT
+data: {}
+
+id: 68
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":50,"patch_type":1,"patch_value":{"ext":{"has_suggest":"1","sp_v2":"[{\"suggest_type\":1,\"content\":\" How can I run the Python file I just created?\",\"icon_url\":\"\",\"icon_uri\":\"\",\"click_url\":\"\",\"bot_id\":\"\",\"dark_icon_url\":\"\"}]","tea_tags_time_cost":"{\"agent_id\":\"\",\"agent_name\":\"\",\"llm_intention\":\"seed_main\",\"llm_intention_detail\":\"default\"}"}}}]}
+
+id: 69
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":50,"patch_type":1,"patch_value":{"ext":{"has_suggest":"1","sp_v2":"[{\"suggest_type\":1,\"content\":\" How can I run the Python file I just created?\",\"icon_url\":\"\",\"icon_uri\":\"\",\"click_url\":\"\",\"bot_id\":\"\",\"dark_icon_url\":\"\"},{\"suggest_type\":1,\"content\":\" Can I use other tools instead of write_file to create a file?\",\"icon_url\":\"\",\"icon_uri\":\"\",\"click_url\":\"\",\"bot_id\":\"\",\"dark_icon_url\":\"\"}]"}}}]}
+
+id: 70
+event: STREAM_CHUNK
+data: {"message_id":"54878724818844418","patch_op":[{"patch_object":50,"patch_type":1,"patch_value":{"ext":{"sp_v2":"[{\"suggest_type\":1,\"content\":\" How can I run the Python file I just created?\",\"icon_url\":\"\",\"icon_uri\":\"\",\"click_url\":\"\",\"bot_id\":\"\",\"dark_icon_url\":\"\"},{\"suggest_type\":1,\"content\":\" Can I use other tools instead of write_file to create a file?\",\"icon_url\":\"\",\"icon_uri\":\"\",\"click_url\":\"\",\"bot_id\":\"\",\"dark_icon_url\":\"\"},{\"suggest_type\":1,\"content\":\" How can I modify the content of the file I just created?\",\"icon_url\":\"\",\"icon_uri\":\"\",\"click_url\":\"\",\"bot_id\":\"\",\"dark_icon_url\":\"\"}]","has_suggest":"1"}}}]}
+
+id: 71
+event: SSE_REPLY_END
+data: {"end_type":3}

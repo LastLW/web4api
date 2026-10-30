@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b14">
+  <title>web2api · 统一管理台</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">W</div>
+      <div>
+        <h1>web2api</h1>
+        <p>网页版 AI · 统一管理台</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <span class="chip" id="globalStatus"><span class="status-dot"></span>正在连接…</span>
+      <button class="btn btn-sm" id="refreshBtn">刷新</button>
+      <button class="btn btn-sm" id="startAllBtn">一键启动</button>
+      <button class="btn btn-sm btn-danger" id="stopAllBtn">全部停止</button>
+      <button class="btn btn-sm btn-ghost" id="firewallBtn">防火墙</button>
+      <button class="btn btn-sm btn-ghost" id="oplogBtn">操作日志</button>
+      <button class="btn btn-sm btn-ghost" id="settingsBtn">设置</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <h2>四个通道，一个控制台</h2>
+        <p>点「浏览器登录」在独立窗口里登录千问 / 豆包 / MiMo / DeepSeek，管理台会自动抓取聊天凭证（Cookie 或登录 Token）并写入服务，一个页面全部搞定。</p>
+        <div class="hero-tags">
+          <span class="tag">内置浏览器登录</span>
+          <span class="tag">自动抓 Cookie + URL</span>
+          <span class="tag">热更新凭证</span>
+          <span class="tag">进程启停</span>
+          <span class="tag">统一 OpenAI / Anthropic 入口</span>
+        </div>
+      </div>
+      <div class="unified-card">
+        <div class="eyebrow">统一 API 入口</div>
+        <div>
+          <div class="hint" style="margin-bottom:4px">Base URL（本机所有对外地址，任选一行）</div>
+          <div id="unifiedBaseList" class="base-list">—</div>
+        </div>
+        <div>
+          <div class="hint" style="margin-bottom:4px">API Key（四通道通用）</div>
+          <div class="value-row">
+            <code id="unifiedKey">—</code>
+            <button class="icon-btn" data-copy-target="unifiedKey" title="复制 Key">⧉</button>
+            <button class="icon-btn" id="rotateKeyBtn" title="生成新 Key">↻</button>
+          </div>
+        </div>
+        <div>
+          <div class="hint" style="margin-bottom:4px;display:flex;justify-content:space-between;align-items:center">
+            <span>模型 ID（点击标签复制）</span>
+            <button class="mini-link" id="copyAllConfigBtn" style="border:none;background:none;padding:0;color:#7ce7c3">一键复制全部配置</button>
+          </div>
+          <div id="unifiedModels" style="display:flex;flex-wrap:wrap;gap:7px"><span class="tag">加载中…</span></div>
+        </div>
+        <div class="hint">其他客户端「自定义模型」照此填写：API 格式选 <b>OpenAI Chat Completions</b> · 请求地址填上方 Base URL（不要加斜杠）· API 密钥填上方 Key · 点通道名（如 豆包）展开该通道的模型 ID，点击即复制。</div>
+      </div>
+    </section>
+
+    <section class="stats" id="stats"></section>
+
+    <section class="service-grid" id="serviceGrid"></section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <h3>使用说明</h3>
+          <p>第一次使用按下面三步走，之后只需要偶尔重新登录。</p>
+        </div>
+      </div>
+      <div class="guide-grid">
+        <div class="guide-step">
+          <div class="n">1</div>
+          <b>浏览器登录</b>
+          <span>在对应卡片点「浏览器登录」，在弹出的窗口里完成登录并发送一条消息，凭证会自动保存。</span>
+        </div>
+        <div class="guide-step">
+          <div class="n">2</div>
+          <b>启动服务</b>
+          <span>点「启动」或顶部「一键启动」。绿色状态表示服务已就绪，可直接调用 API。</span>
+        </div>
+        <div class="guide-step">
+          <div class="n">3</div>
+          <b>接入客户端</b>
+          <span>使用上方统一 Base URL 与 Key；也可以使用单个服务的地址和 Key。</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast"></div>
+  <div id="modalRoot"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

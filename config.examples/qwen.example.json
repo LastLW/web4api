@@ -1,0 +1,13 @@
+{
+  "cookie": "tongyi_sso_ticket=xxxxxxxxxxxxxxxxxxxxxx",
+  "api_key": "sk-qwenweb-自动生成",
+  "admin_key": "自动生成",
+  "port": 8301,
+  "device_id": "可留空（setup_wizard 从 URL 提取，或使用默认）",
+  "chat_url": "浏览器登录后自动抓取的完整 /api/v2/chat 请求 URL（可留空）",
+  "user_agent": "浏览器登录后自动抓取的 User-Agent（可留空）",
+  "credential_updated_at": "",
+  "credential_source": "",
+  "min_interval_seconds": 2.0,
+  "extra_models": {}
+}

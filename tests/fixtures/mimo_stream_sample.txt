@@ -1,0 +1,55 @@
+id:c53564275ab5c3d592706254b595ef37
+event:dialogId
+data:{"content":"29012317"}
+
+id:c53564275ab5c3d592706254b595ef37
+event:message
+data:{"type":"text","content":""}
+
+id:c53564275ab5c3d592706254b595ef37
+event:message
+data:{"type":"text","content":"<think>\u0000The"}
+
+id:c53564275ab5c3d592706254b595ef37
+event:message
+data:{"type":"text","content":" user asks"}
+
+id:c53564275ab5c3d592706254b595ef37
+event:message
+data:{"type":"text","content":" \""}
+
+id:c53564275ab5c3d592706254b595ef37
+event:message
+data:{"type":"text","content":"1+1="}
+
+id:c53564275ab5c3d592706254b595ef37
+event:message
+data:{"type":"text","content":"?\" and"}
+
+id:c53564275ab5c3d592706254b595ef37
+event:message
+data:{"type":"text","content":" wants only"}
+
+id:c53564275ab5c3d592706254b595ef37
+event:message
+data:{"type":"text","content":" the number as"}
+
+id:c53564275ab5c3d592706254b595ef37
+event:message
+data:{"type":"text","content":" an"}
+
+id:c53564275ab5c3d592706254b595ef37
+event:message
+data:{"type":"text","content":" answer."}
+
+id:c53564275ab5c3d592706254b595ef37
+event:message
+data:{"type":"text","content":"</think>\u00002"}
+
+id:c53564275ab5c3d592706254b595ef37
+event:usage
+data:{"promptTokens":3119,"completionTokens":22,"totalTokens":3141,"nativeUsage":{"completion_tokens":22,"prompt_tokens":3119,"total_tokens":3141,"prompt_tokens_details":{"cached_tokens":3072},"completion_tokens_details":{"reasoning_tokens":19}}}
+
+id:c53564275ab5c3d592706254b595ef37
+event:finish
+data:{"content":"[DONE]"}

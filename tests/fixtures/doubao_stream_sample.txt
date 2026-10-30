@@ -1,0 +1,104 @@
+id: 0
+event: SSE_HEARTBEAT
+data: {}
+
+id: 0
+event: SSE_ACK
+data: {"query_list":[{"question_id":"54849895324444930","local_message_id":"f93fcadc-7275-4ae2-9f45-3a8e1f69ac4e","message_index":1}],"ack_client_meta":{"conversation_id":"38440685847108866","local_conversation_id":"local_1788887696235","conversation_type":3,"section_id":"38440685847109122","conversation_info":{"conversation_id":"38440685847108866","conversation_type":3,"creator_id":"1800355860973188","name":"新对话","image":{"image_thumb":{"url":"https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/b031a0d97eb5ebd17d1b4bde22308690.png~tplv-a9rns2rl98-image-qvalue.png?lk3s=8e244e95&rcl=20260909011456A40F76AB623FFCF88A08&rrcfp=bf2e6f99&x-expires=1791479696&x-signature=agCnekf6Fnnu5UTXD0LBVI3pl9c%3D"},"image_ori":{"url":"https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/b031a0d97eb5ebd17d1b4bde22308690.png~tplv-a9rns2rl98-image-qvalue.png?lk3s=8e244e95&rcl=20260909011456A40F76AB623FFCF88A08&rrcfp=bf2e6f99&x-expires=1791479696&x-signature=agCnekf6Fnnu5UTXD0LBVI3pl9c%3D"}},"participant_count":2,"human_count":1,"tenant_id":0,"biz_id":0,"status":1,"create_time":1788887696,"update_time":1788887696,"extra":"{\"inner_app_id\":\"497858\",\"inner_cluster\":\"default\",\"inner_did\":\"7683206949127063081\",\"inner_env\":\"prod\",\"inner_flow_app_variant\":\"doubao\",\"inner_is_tour\":\"false\",\"inner_log_id\":\"20260909011456A40F76AB623FFCF88A08\",\"inner_pc_version\":\"3.36.0\",\"inner_platform\":\"web\",\"inner_real_app_id\":\"497858\",\"inner_samantha_web\":\"true\",\"inner_tea_uuid\":\"7683206975173363210\",\"inner_tt_wid\":\"7683206949127063081\",\"inner_user_ip\":\"223.104.122.170\",\"inner_version_name\":\"\",\"is_default_name\":\"true\",\"local_conversation_id\":\"local_1788887696235\",\"log_id\":\"20260909011456A40F76AB623FFCF88A08\",\"mode_id\":\"1\",\"model_item_key\":\"0\",\"reasoning_effort\":\"3\",\"reply_mode\":\"0\"}","msg_cursor":1,"bot_type":3,"retention_cursor":1,"last_read_index":0,"latest_index":0,"last_section_id":"38440685847109122","input_left_button_style":1,"review_status":2,"create_scene":0,"create_channel":0,"badge_count":0,"read_badge_count":0,"latest_artifact":1}},"timeout_conf":{"answer_first_pending_time":180000,"packet_interval_time":120000,"max_retry_count":10,"max_retry_duration_ms":21600000,"retry_interval_ms":1000}}
+
+id: 1
+event: FULL_MSG_NOTIFY
+data: {"message":{"conversation_id":"38440685847108866","message_id":"54849895324444930","message_body_version":1,"sender_id":"1800355860973188","user_type":1,"content_type":9999,"content":"[{\"block_type\":10000,\"block_id\":\"54f43caf-5997-462e-a0d8-0960e767b5d4\",\"content\":{\"text_block\":{\"text\":\"用两句话介绍你自己\"}}}]","index_in_conv":1,"create_time":1788887696,"biz_content_type":"","sec_sender":"MS4wLjABAAAA0tmTxwuowcW2Rjlxips1HmNZXYrAtLf1cDKuJ_2_g5QvZUpqg8V3bm23LehzOBYS","content_block":[{"block_type":10000,"block_id":"54f43caf-5997-462e-a0d8-0960e767b5d4","content":{"text_block":{"text":"用两句话介绍你自己"}},"is_finish":false}],"tts_content":"","update_time":1788887696,"ext":{"inner_region":"CN","client_report_scene":"gui","model_type":"38","message_from":"InputBox","chat_next":"1","bot_id":"7338286299411103781","inner_bot_id":"0","read_conv_version":"1788887696549391","use_deep_think":"0","is_finish":"1","update_version_code":"0","is_ai_playground":"false","ugc_voice_id":"104","commerce_credit_config_enable":"0","attachment_scene":"1","sub_conv_firstmet_type":"1","group":"1788887696","inner_log_id":"20260909011456A40F76AB623FFCF88A08","brief":"用两句话介绍你自己","inner_did":"7683206949127063081","inner_platform":"web","agent_mode":"2","pre_read_conv_version":"1788887696549391","chat_id":"54849895324444930","collection_id":"","use_content_block":"1","inner_user_ip":"223.104.122.170","inner_app_id":"497858","input_skill":"{\"skill_id\":\"0\",\"skill_type\":0}","speaker_id":"zh_female_wenroutaozi_uranus_bigtts","chat_ability":"{}","bot_source":"BotStudio","search_engine_type":"4","cot_switch":"0","section_tag_1h":"38440685847109122_2026090901","llm_model_type":"38","reply_unique_key":"457de674-0ed4-4d9a-b188-2227ab7aafe4"},"local_message_id":"f93fcadc-7275-4ae2-9f45-3a8e1f69ac4e","section_id":"38440685847109122","bot_reply_message_id":"0","fetch_token":"54849895324444930"},"message_attr":{"badge_count":1,"read_badge_count":1,"read_conv_version":1788887696549391,"pre_read_conv_version":1788887696549391}}
+
+id: 4
+event: STREAM_MSG_NOTIFY
+data: {"content":{"content_block":[{"block_type":10000,"block_id":"10278510849797890","content":{"text_block":{"text":"我"}},"is_finish":false,"patch_type":1}],"content_status":100,"ext":{"llm_model_type":"38","inner_did":"7683206949127063081","use_content_block":"1","agent_hub_model_family_name":"","cot_switch":"0","model_id":"38","agent_name":"豆包","agent_intention":"seed_main","perf_mark":"{\"marks\":[{\"ev_name\":\"answer_first_token\",\"ev_type\":\"query_duration\"}]}","chat_next":"1","chat_ability":"{}","model_type":"38","z_intervene_result":"","inner_region":"CN","z_intervene_id":"","inner_app_id":"497858","reply_unique_key":"457de674-0ed4-4d9a-b188-2227ab7aafe4","seed_intention":"seed_main","update_version_code":"0","inner_platform":"web","review_scenario_id":"4085066754","llm_intention_detail":"default","section_tag_1h":"38440685847109122_2026090901","need_deep_think":"0","inner_user_ip":"223.104.122.170","input_skill":"{\"skill_id\":\"0\",\"skill_type\":0}","client_report_scene":"gui","before_content_type":"1","tea_tags_time_cost":"{\"ack_cost_time\":\"140\",\"agent_id\":\"19457456070409730\",\"agent_name\":\"豆包\",\"first_packet_cost_time\":\"977\",\"llm_intention\":\"seed_main\",\"llm_intention_detail\":\"default\"}","attachment_scene":"1","agent_mode":"2","chat_id":"54849895324444930","bot_state":"{\"bot_id\":\"7338286299411103781\",\"bot_name\":\"豆包\",\"agent_name\":\"豆包\",\"agent_id\":\"19457456070409730\",\"agent_psm\":\"flow.agent.shell\",\"intent_agent_name\":\"Agent-Chat\"}","inner_log_id":"20260909011456A40F76AB623FFCF88A08","detailed_model_name":"","llm_intention":"seed_main","agent_id":"19457456070409730","is_general_task":"0","msg_scene":"rv_two_col","is_pro":"0","tts":""},"content_type":9999,"tts_content":"我"},"meta":{"message_id":"54849895324446722","conversation_id":"38440685847108866","section_id":"38440685847109122","sender_id":"7338286299411103781","user_type":2,"create_time":1788887697,"index_in_conv":2,"bot_reply_message_id":"54849895324444930","local_conversation_id":"local_1788887696235"},"attr":{"reply_unique_key":"457de674-0ed4-4d9a-b188-2227ab7aafe4"}}
+
+id: 6
+event: STREAM_CHUNK
+data: {"message_id":"54849895324446722","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"10278510849797890","content":{"text_block":{"text":"是"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 7
+event: STREAM_CHUNK
+data: {"message_id":"54849895324446722","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"是"}}]}
+
+id: 9
+event: CHUNK_DELTA
+data: {"text":"豆包，由字节跳动"}
+
+id: 10
+event: STREAM_CHUNK
+data: {"message_id":"54849895324446722","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"豆包，由字节跳动"}}]}
+
+id: 12
+event: CHUNK_DELTA
+data: {"text":"独立研发的人工智能。\n"}
+
+id: 13
+event: STREAM_CHUNK
+data: {"message_id":"54849895324446722","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"独立研发的人工智能。\n"}}]}
+
+id: 15
+event: CHUNK_DELTA
+data: {"text":"我可以陪你聊天、"}
+
+id: 16
+event: STREAM_CHUNK
+data: {"message_id":"54849895324446722","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"我可以陪你聊天、"}}]}
+
+id: 18
+event: CHUNK_DELTA
+data: {"text":"解答疑问，也能帮"}
+
+id: 19
+event: STREAM_CHUNK
+data: {"message_id":"54849895324446722","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"解答疑问，也能帮"}}]}
+
+id: 21
+event: CHUNK_DELTA
+data: {"text":"你构思文案、整理思路"}
+
+id: 22
+event: STREAM_CHUNK
+data: {"message_id":"54849895324446722","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"你构思文案、整理思路"}}]}
+
+id: 24
+event: CHUNK_DELTA
+data: {"text":"。"}
+
+id: 25
+event: STREAM_CHUNK
+data: {"message_id":"54849895324446722","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"。"}}]}
+
+id: 28
+event: STREAM_CHUNK
+data: {"message_id":"54849895324446722","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"10278510849797890","content":{"text_block":{}},"is_finish":true,"patch_type":1}]}}]}
+
+id: 29
+event: STREAM_CHUNK
+data: {"message_id":"54849895324446722","patch_op":[{"patch_object":3,"patch_type":2,"patch_value":{}},{"patch_object":50,"patch_type":1,"patch_value":{"ext":{"is_finish":"1","perf_mark":"{\"marks\":[{\"ev_type\":\"query_duration\",\"ev_name\":\"task_finish\"}]}"}}}]}
+
+id: 30
+event: SSE_REPLY_END
+data: {"end_type":1,"msg_finish_attr":{"msgid":"54849895324446722","badge_count":2,"read_badge_count":1,"read_conv_version":1788887697384274,"pre_read_conv_version":1788887697384274,"brief":"我是豆包，由字节跳动独立研发的人工智能。我可以陪你聊天、解答疑问，也能帮你构思文案、整理思路。"}}
+
+id: 31
+event: SSE_REPLY_END
+data: {"end_type":2,"answer_finish_attr":{"has_suggest":true}}
+
+id: 32
+event: STREAM_CHUNK
+data: {"message_id":"54849895324446722","patch_op":[{"patch_object":50,"patch_type":1,"patch_value":{"ext":{"has_suggest":"1","sp_v2":"[{\"suggest_type\":1,\"content\":\" 豆包，你能帮我写一篇小说吗？\",\"icon_url\":\"\",\"icon_uri\":\"\",\"click_url\":\"\",\"bot_id\":\"\",\"dark_icon_url\":\"\"}]","tea_tags_time_cost":"{\"agent_id\":\"\",\"agent_name\":\"\",\"llm_intention\":\"seed_main\",\"llm_intention_detail\":\"default\"}"}}}]}
+
+id: 33
+event: STREAM_CHUNK
+data: {"message_id":"54849895324446722","patch_op":[{"patch_object":50,"patch_type":1,"patch_value":{"ext":{"has_suggest":"1","sp_v2":"[{\"suggest_type\":1,\"content\":\" 豆包，你能帮我写一篇小说吗？\",\"icon_url\":\"\",\"icon_uri\":\"\",\"click_url\":\"\",\"bot_id\":\"\",\"dark_icon_url\":\"\"},{\"suggest_type\":1,\"content\":\" 你是如何被训练的？\",\"icon_url\":\"\",\"icon_uri\":\"\",\"click_url\":\"\",\"bot_id\":\"\",\"dark_icon_url\":\"\"}]"}}}]}
+
+id: 34
+event: STREAM_CHUNK
+data: {"message_id":"54849895324446722","patch_op":[{"patch_object":50,"patch_type":1,"patch_value":{"ext":{"has_suggest":"1","sp_v2":"[{\"suggest_type\":1,\"content\":\" 豆包，你能帮我写一篇小说吗？\",\"icon_url\":\"\",\"icon_uri\":\"\",\"click_url\":\"\",\"bot_id\":\"\",\"dark_icon_url\":\"\"},{\"suggest_type\":1,\"content\":\" 你是如何被训练的？\",\"icon_url\":\"\",\"icon_uri\":\"\",\"click_url\":\"\",\"bot_id\":\"\",\"dark_icon_url\":\"\"},{\"suggest_type\":1,\"content\":\" 你可以回答哪些领域的问题？\",\"icon_url\":\"\",\"icon_uri\":\"\",\"click_url\":\"\",\"bot_id\":\"\",\"dark_icon_url\":\"\"}]"}}}]}
+
+id: 35
+event: SSE_REPLY_END
+data: {"end_type":3}
+
