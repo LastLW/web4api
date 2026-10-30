@@ -96,10 +96,10 @@ API Key  : 管理台首页「统一 API 入口」里显示的那把
 
 | 模型名前缀 | 路由到 |
 |------------|--------|
-| `qwen*` / `qw-*` | 千问 qwen2api |
-| `doubao*` / `db-*` | 豆包 doubao2api |
-| `mimo*` | 小米 MiMo mimo2api |
-| `deepseek*` | DeepSeek deepseek2api |
+| `qwen*` / `qw-*` | 千问 qwen4api |
+| `doubao*` / `db-*` | 豆包 doubao4api |
+| `mimo*` | 小米 MiMo mimo4api |
+| `deepseek*` | DeepSeek deepseek4api |
 
 例如在 Claude Code 里：
 
@@ -134,10 +134,10 @@ Cookie 抓取的详细图文：[docs/cookie-guide.md](docs/cookie-guide.md)
 | 服务 | 端口 | 上游 | 凭证方式 | 目录 |
 |------|------|------|----------|------|
 | **管理台** | 8400 | 统一入口 + 进程管理 | 统一 API Key | `gateway/` |
-| **qwen2api** | 8301 | 千问 qianwen.com | Cookie（tongyi_sso_ticket） | `services/qwen2api/` |
-| **doubao2api** | 8302 | 豆包 doubao.com | 完整 Cookie | `services/doubao2api/` |
-| **mimo2api** | 8303 | 小米 MiMo Studio | 完整 Cookie（含 serviceToken） | `services/mimo2api/` |
-| **deepseek2api** | 8304 | DeepSeek 网页版 | 浏览器登录 Token（本地 PoW 求解） | `services/deepseek2api/` |
+| **qwen4api** | 8301 | 千问 qianwen.com | Cookie（tongyi_sso_ticket） | `services/qwen4api/` |
+| **doubao4api** | 8302 | 豆包 doubao.com | 完整 Cookie | `services/doubao4api/` |
+| **mimo4api** | 8303 | 小米 MiMo Studio | 完整 Cookie（含 serviceToken） | `services/mimo4api/` |
+| **deepseek4api** | 8304 | DeepSeek 网页版 | 浏览器登录 Token（本地 PoW 求解） | `services/deepseek4api/` |
 
 所有服务默认只监听 `127.0.0.1`（本机），协议相同、只有端口不同。
 也可以绕过管理台，直接访问各服务端口；四个服务的 `api_key` 可以在各自
@@ -172,7 +172,7 @@ Cookie 抓取的详细图文：[docs/cookie-guide.md](docs/cookie-guide.md)
 
 ## 模型表
 
-### 千问（qwen2api）
+### 千问（qwen4api）
 | 模型名 | 上游 | 说明 |
 |--------|------|------|
 | `qwen3.7` | Qwen3.7-千问 | 综合，默认 |
@@ -185,16 +185,16 @@ Cookie 抓取的详细图文：[docs/cookie-guide.md](docs/cookie-guide.md)
 
 > ⚠️ **定位说明**：千问网页通道适合**聊天与轻量任务**。做 Agent 重度工作（Claude Code 连续工具调用）时响应慢且模型偶尔不遵从工具指令（服务内置三级自愈，但先天上限如此），重度工作建议用 `deepseek-web` / `doubao-web` / `mimo-web`。
 
-### DeepSeek（deepseek2api）
+### DeepSeek（deepseek4api）
 `deepseek-v4-flash`（快）/ `deepseek-v4-pro`（强）及 `-nothinking`、`-search` 变体。
 
-### 豆包（doubao2api）
+### 豆包（doubao4api）
 | 模型名 | 说明 |
 |--------|------|
 | `doubao-web` | 豆包 快速 |
 | `doubao-web-expert` | 豆包 2.1 Turbo 专家（256k 上下文） |
 
-### 小米 MiMo（mimo2api）
+### 小米 MiMo（mimo4api）
 | 模型名 | 说明 |
 |--------|------|
 | `mimo-v2.5-pro` | 开源性能旗舰（默认） |
@@ -227,44 +227,11 @@ MiMo 的思考内容自动解析：Anthropic 输出为 `thinking` 块，OpenAI �
 
 ```json
 {
-  "ANTHROPIC_AUTH_TOKEN": "<qwen2api 的 api_key>",
+  "ANTHROPIC_AUTH_TOKEN": "<qwen4api 的 api_key>",
   "ANTHROPIC_BASE_URL": "http://127.0.0.1:8301",
   "ANTHROPIC_MODEL": "qwen3.7"
 }
 ```
-
-## 目录结构
-
-```
-web4api/
-├── manager.py               一键启动统一管理台
-├── gateway/                 统一管理台（FastAPI + 原生前端）
-│   ├── app.py               页面与全部管理 API
-│   ├── browser_capture.py   Playwright 浏览器登录 / 抓包
-│   ├── processes.py         服务进程启动 / 停止 / 日志
-│   ├── credentials.py       凭证保存与热更新
-│   ├── proxy.py             统一 /v1 入口与模型路由
-│   ├── static/              管理台前端（无构建步骤）
-│   └── browser_data/        各平台独立浏览器资料（gitignore）
-├── setup_wizard.py          手动配置向导（manager / qwen / doubao / mimo）
-├── services/
-│   ├── qwen2api/            qwen2api.py + config.json（本地）
-│   ├── doubao2api/          doubao2api.py + config.json（本地）
-│   ├── mimo2api/            mimo2api.py + config.json（本地）
-│   └── deepseek2api/        deepseek2api.py + config.json（本地）
-├── config.examples/         示例配置（入库的是这些）
-├── photo/                   README 用的管理台截图（已脱敏）
-├── tests/
-│   ├── fixtures/            真实抓包的 SSE 样本
-│   ├── test_parsers.py      解析器回归测试：python tests/test_parsers.py
-│   ├── test_manager.py      管理台纯函数测试：python tests/test_manager.py
-│   └── test_deepseek2api.py PoW/SSE 回归测试：python tests/test_deepseek2api.py
-├── docs/cookie-guide.md     Cookie 获取教程
-├── upload_github.ps1        一键上传 GitHub 脚本（含泄密检查）
-├── .gitignore               真实 config.json 永不入库
-└── LICENSE                  MIT + 附加免责条款
-```
-
 上游改版导致解析失效时，`python tests/test_parsers.py` 会第一时间告诉你坏在哪。
 
 **配置文件去哪了？** `config.examples/` 里的模板是"填空用的样例"：
@@ -305,17 +272,6 @@ web4api/
 | 登录后一直显示「等待发送消息」 | 在网页里真的发送一条消息；部分平台登录态 Cookie 要发消息后才完整。仍不行就点「清除登录数据」重登 |
 | 统一入口返回 401 | 使用管理台首页显示的统一 Key；各服务自己的 Key 也可以 |
 | DeepSeek 提示 token 无效/过期 | 管理台 DeepSeek 卡片重新点「浏览器登录」抓一次即可（一般 30 天左右一次） |
-
-## 发布到 GitHub
-
-真实凭证永远不入库（`.gitignore` 已排除所有 `config.json`、浏览器登录资料与日志）。
-
-Windows 上一键上传（脚本自带泄密检查，token 存在 gitignore 的 `.github_token` 里）：
-
-```powershell
-.\upload_github.ps1            # 默认强推，会覆盖 GitHub 建仓时生成的 README
-.\upload_github.ps1 -NoForce   # 普通推送（远程已有提交时会失败）
-```
 
 手动发布：
 

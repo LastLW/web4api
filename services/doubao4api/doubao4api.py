@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""doubao2api - 豆包网页版(doubao.com)逆向 → Anthropic / OpenAI 兼容 API
+"""doubao4api - 豆包网页版(doubao.com)逆向 → Anthropic / OpenAI 兼容 API
 
 原理与故障排查见仓库 README。本文件自包含，依赖：pip install fastapi uvicorn httpx
 
@@ -57,7 +57,7 @@ TOOL_CALL_RE = re.compile(r"<tool_call>\s*(\{.*?\})\s*</tool_call>", re.S)
 # 豆包偶尔会把开括号 "<" 吞掉（模型怪癖），宽容匹配缺左括号的调用块
 TOOL_CALL_LOOSE_RE = re.compile(r"(?:<)?tool_call>\s*(\{.*?\})\s*</tool_call>", re.S)
 
-app = FastAPI(title="doubao2api")
+app = FastAPI(title="doubao4api")
 
 
 # ============ 统一错误 / 鉴权 / 限速 ============
@@ -503,7 +503,7 @@ def sse(obj: dict) -> str:
 
 @app.get("/")
 async def health():
-    return {"service": "doubao2api", "version": "1.2", "status": "ok",
+    return {"service": "doubao4api", "version": "1.2", "status": "ok",
             "cookie_configured": bool(STATE["cookie"]),
             "chat_url_captured": bool(CHAT_URL)}
 

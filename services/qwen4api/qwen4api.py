@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""qwen2api - 千问网页版(qianwen.com)逆向 → Anthropic / OpenAI / Responses 兼容 API
+"""qwen4api - 千问网页版(qianwen.com)逆向 → Anthropic / OpenAI / Responses 兼容 API
 
 原理与故障排查见仓库 README。本文件自包含，依赖：pip install fastapi uvicorn httpx
 
@@ -72,7 +72,7 @@ EXTRA_MODELS = {k.lower(): v for k, v in CONFIG.get("extra_models", {}).items()}
 THINK_RE = re.compile(r"-(think|thinking)$", re.I)
 TOOL_CALL_RE = re.compile(r"<tool_call>\s*(\{.*?\})\s*</tool_call>", re.S)
 
-app = FastAPI(title="qwen2api")
+app = FastAPI(title="qwen4api")
 
 
 # ============ 统一错误 ============
@@ -442,7 +442,7 @@ def sse(obj: dict) -> str:
 
 @app.get("/")
 async def health():
-    return {"service": "qwen2api", "version": "3.2", "status": "ok",
+    return {"service": "qwen4api", "version": "3.2", "status": "ok",
             "cookie_configured": bool(STATE["cookie"]),
             "chat_url_captured": bool(CHAT_URL)}
 

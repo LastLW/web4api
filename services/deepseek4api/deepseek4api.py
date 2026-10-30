@@ -1,10 +1,10 @@
 ﻿# -*- coding: utf-8 -*-
-"""deepseek2api - DeepSeek 网页版(chat.deepseek.com)逆向 → OpenAI 兼容 API
+"""deepseek4api - DeepSeek 网页版(chat.deepseek.com)逆向 → OpenAI 兼容 API
 
-与 qwen2api/doubao2api 同构的自建通道：浏览器登录抓 userToken（JWT）后直接
-调用官网聊天接口，不经过 ds2api 的密码登录（那会被 RISK_DEVICE_DETECTED 风控）。
+与 qwen4api/doubao4api 同构的自建通道：浏览器登录抓 userToken（JWT）后直接
+调用官网聊天接口，不经过密码登录（那会被 RISK_DEVICE_DETECTED 风控）。
 
-协议要点（逆向自 ds2api v4.6.1 源码，2026-05）：
+协议要点（2026-05 逆向）：
   1. POST /api/v0/chat_session/create   {"agent": "chat"} → 会话 ID
   2. POST /api/v0/chat/create_pow_challenge {"target_path": "/api/v0/chat/completion"}
   3. 本地暴力求解 DeepSeekHashV1（SHA3-256 跳过 Keccak round 0）
@@ -48,7 +48,7 @@ COMPLETION_URL = DS_HOST + "/api/v0/chat/completion"
 CONTINUE_URL = DS_HOST + "/api/v0/chat/continue"
 COMPLETION_TARGET = "/api/v0/chat/completion"
 
-# 伪装 DeepSeek 安卓客户端（与 ds2api 一致）；token 来自网页浏览器登录，
+# 伪装 DeepSeek 安卓客户端；token 来自网页浏览器登录，
 # JWT 通用，服务端按 token 鉴权。
 BASE_HEADERS = {
     "Accept": "application/json",
@@ -72,7 +72,7 @@ MAX_CONTINUE_ROUNDS = 8
 RATE_HINT = ("DeepSeek 上游异常。可能原因：1) token 过期——管理台重新「抓取登录 Token」；"
              "2) 触发风控/限流——降低频率，浏览器打开 chat.deepseek.com 正常对话一次即可恢复。")
 
-app = FastAPI(title="deepseek2api")
+app = FastAPI(title="deepseek4api")
 
 
 class UpstreamError(RuntimeError):
@@ -513,7 +513,7 @@ class DeepSeekStreamParser:
         return text, "".join(think_parts), self.status
 
     def should_continue(self) -> bool:
-        """ds2api 同款判定：只有显式 INCOMPLETE/AUTO_CONTINUE 才续写，普通 WIP 不算。"""
+        """续写判定：只有显式 INCOMPLETE/AUTO_CONTINUE 才续写，普通 WIP 不算。"""
         return self.message_id > 0 and not self.finished() and \
             self.status.upper() in ("INCOMPLETE", "AUTO_CONTINUE")
 
@@ -521,7 +521,7 @@ class DeepSeekStreamParser:
         return self.status.upper() in ("FINISHED", "CONTENT_FILTER")
 
 
-# ============ 提示词组装（与 qwen2api 同思路：单 prompt 全量上下文） ============
+# ============ 提示词组装（与 qwen4api 同思路：单 prompt 全量上下文） ============
 
 def content_to_text(content) -> str:
     if isinstance(content, str):
@@ -718,7 +718,7 @@ async def deepseek_complete(prompt: str, mtype: str, thinking: bool, search: boo
 @app.get("/")
 @app.get("/healthz")
 async def health():
-    return {"service": "deepseek2api", "version": "1.0", "status": "ok",
+    return {"service": "deepseek4api", "version": "1.0", "status": "ok",
             "token_configured": bool(STATE["token"])}
 
 
@@ -766,7 +766,7 @@ async def openai_chat(request: Request):
 
 
 async def _stream_response(cid: str, model: str, prompt: str, mtype: str, thinking: bool, search: bool):
-    """qwen2api 同款聚合后伪流：先等完整回复，再按块吐出。"""
+    """qwen4api 同款聚合后伪流：先等完整回复，再按块吐出。"""
 
     def chunk(delta: dict, finish=None):
         return "data: " + json.dumps({
@@ -866,7 +866,7 @@ async def admin_shutdown(request: Request):
 
 if __name__ == "__main__":
     if "--check" in sys.argv:
-        # 自检：已知答案向量（来自 ds2api 直接调用官方 WASM 的测试）+ 一次真实上游对话
+        # 自检：已知答案向量（官方 WASM 实测结果）+ 一次真实上游对话
         vecs = [
             (b"", "e594808bc5b7151ac160c6d39a02e0a8e261ed588578403099e3561dc40c26b3"),
             (b"testsalt_1700000000_42",

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-"""deepseek2api 自检：DeepSeekHashV1 已知向量、PoW 求解、SSE 解析、模型解析。
+"""deepseek4api 自检：DeepSeekHashV1 已知向量、PoW 求解、SSE 解析、模型解析。
 
-运行：python tests/test_deepseek2api.py
+运行：python tests/test_deepseek4api.py
 """
 import json
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SERVICE_DIR = ROOT / "services" / "deepseek2api"
+SERVICE_DIR = ROOT / "services" / "deepseek4api"
 sys.path.insert(0, str(SERVICE_DIR))
 
 # 模块导入时读取 config.json；不存在则临时生成（测试结束后删除）
@@ -18,11 +18,11 @@ if created_cfg:
     cfg_path.write_text(json.dumps(
         {"api_key": "sk-test", "admin_key": "test-admin", "port": 8304}), encoding="utf-8")
 
-import deepseek2api as d  # noqa: E402
+import deepseek4api as d  # noqa: E402
 
 
 def test_hash():
-    # 向量来自 ds2api 直接调用 DeepSeek 官方 WASM 的测试
+    # 向量来自 DeepSeek 官方 WASM 实测结果
     vecs = [
         (b"", "e594808bc5b7151ac160c6d39a02e0a8e261ed588578403099e3561dc40c26b3"),
         (b"testsalt_1700000000_42",

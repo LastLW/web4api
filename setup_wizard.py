@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""web2api 配置向导 —— 一键粘贴完成各服务的凭证配置。
+"""web4api 配置向导 —— 一键粘贴完成各服务的凭证配置。
 
 用法：
     python setup_wizard.py manager   # 推荐：统一管理台 + 内置浏览器登录
@@ -25,7 +25,7 @@ SERVICES_DIR = os.path.join(BASE, "services")
 # 各服务的抓取教程与校验规则
 GUIDES = {
     "qwen": {
-        "service_file": "qwen2api.py",
+        "service_file": "qwen4api.py",
         "port": 8301,
         "steps": [
             "浏览器打开 https://www.qianwen.com 并登录",
@@ -40,7 +40,7 @@ GUIDES = {
         "url_extracts": {"device_id": r"[?&]ut=([\w-]+)"},
     },
     "doubao": {
-        "service_file": "doubao2api.py",
+        "service_file": "doubao4api.py",
         "port": 8302,
         "steps": [
             "浏览器打开 https://www.doubao.com/chat 并登录",
@@ -59,7 +59,7 @@ GUIDES = {
         },
     },
     "mimo": {
-        "service_file": "mimo2api.py",
+        "service_file": "mimo4api.py",
         "port": 8303,
         "steps": [
             "浏览器打开 https://aistudio.xiaomimimo.com 并登录",
@@ -83,7 +83,7 @@ def gen_key(prefix: str) -> str:
 
 
 def load_or_create_config(name: str, guide: dict) -> dict:
-    svc_dir = os.path.join(SERVICES_DIR, name + "2api")
+    svc_dir = os.path.join(SERVICES_DIR, name + "4api")
     os.makedirs(svc_dir, exist_ok=True)
     cfg_path = os.path.join(svc_dir, "config.json")
     example = os.path.join(BASE, "config.examples", f"{name}.example.json")
@@ -120,7 +120,7 @@ def generic_guide():
     print("  2. 鉴权分析：只靠 Cookie/Token 即可重放 = 可做；需签名头 = 建议放弃")
     print("  3. 重放验证：用 curl 在浏览器外重放，200 且有流式内容 = 成功")
     print("  4. 响应分析：找正文增量字段和结束标记")
-    print("  5. 套模板：复制 services/doubao2api/ 改 4 个函数")
+    print("  5. 套模板：复制 services/doubao4api/ 改 4 个函数")
     print()
     print("  不知道 Cookie 在哪？完整新手教程：docs/generic-guide.md 第 0 步")
     print()
@@ -131,7 +131,7 @@ def generic_guide():
 
 def manager_guide():
     """推荐入口：统一管理台负责启动服务、浏览器登录抓包和统一 API。"""
-    print("=== web2api 统一管理台 ===")
+    print("=== web4api 统一管理台 ===")
     print()
     print("一个页面管理 DeepSeek / 千问 / 豆包 / 小米 MiMo 四个通道：")
     print("  · 一键启动 / 停止服务，查看日志和测试对话")

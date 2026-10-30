@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Windows 端口工具：防火墙（wf.msc）规则管理 + 本机监听进程检测。
 
-规则统一命名 web2api-<port>。查询是只读的；放行/关闭端口需要管理员权限，
+规则统一命名 web4api-<port>。查询是只读的；放行/关闭端口需要管理员权限，
 非管理员时通过 UAC 提权隐藏执行（只有 UAC 授权框会显示）。
 """
 from __future__ import annotations
@@ -20,7 +20,7 @@ _cache = {"at": 0.0, "rules": {}, "error": ""}
 
 _QUERY = (
     "Get-NetFirewallRule -ErrorAction SilentlyContinue | "
-    "Where-Object { $_.DisplayName -like 'web2api-*' } | "
+    "Where-Object { $_.DisplayName -like 'web4api-*' } | "
     "ForEach-Object { $pf = $_ | Get-NetFirewallPortFilter; "
     "\"{0}|{1}|{2}|{3}|{4}|{5}\" -f $_.DisplayName, $_.Enabled, "
     "$_.Direction, $_.Action, $pf.Protocol, $pf.LocalPort }"
@@ -28,7 +28,7 @@ _QUERY = (
 
 
 def rule_name(port: int) -> str:
-    return f"web2api-{int(port)}"
+    return f"web4api-{int(port)}"
 
 
 def is_admin() -> bool:

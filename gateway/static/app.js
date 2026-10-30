@@ -1,4 +1,4 @@
-/* web2api 统一管理台前端（无构建依赖） */
+/* web4api 统一管理台前端（无构建依赖） */
 (() => {
   "use strict";
 
@@ -847,7 +847,7 @@
             </div>
             <div class="flex">
               ${it.self ? `<span class="badge ok">本管理台</span>`
-                        : it.ours ? `<span class="badge warn">web2api 进程</span>`
+                        : it.ours ? `<span class="badge warn">web4api 进程</span>`
                                   : `<span class="badge">外部进程</span>`}
               <button class="btn btn-sm btn-danger" data-action="kill-pid" data-pid="${esc(it.pid)}"
                 ${it.self ? 'disabled title="管理台自身，请用「全部停止」或退出程序"' : ""}>关闭</button>
@@ -855,7 +855,7 @@
           </div>`).join("")
         : `<div class="empty">这些端口当前没有监听进程。</div>`}
       </div>
-      <div class="k" style="color:var(--muted-2);font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;margin:16px 0 8px">防火墙入站规则（web2api-*）</div>
+      <div class="k" style="color:var(--muted-2);font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;margin:16px 0 8px">防火墙入站规则（web4api-*）</div>
       <div class="account-list">
         ${ports.map((p) => `
           <div class="account-row">

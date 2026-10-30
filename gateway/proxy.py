@@ -123,7 +123,7 @@ async def _forward(request: Request, target: str, path: str, body: bytes | None 
         name: value for name, value in upstream.headers.items()
         if name.lower() not in _EXCLUDE_RESPONSE_HEADERS
     }
-    response_headers["x-web2api-upstream"] = target
+    response_headers["x-web4api-upstream"] = target
 
     async def gen():
         try:

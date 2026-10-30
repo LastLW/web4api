@@ -51,7 +51,7 @@
 
 | 你看到的东西 | 难度 | 说明 |
 |--------------|------|------|
-| 只有 Cookie | ⭐ 简单 | 登录态即凭证，参照 doubao2api |
+| 只有 Cookie | ⭐ 简单 | 登录态即凭证，参照 doubao4api |
 | Cookie + `Authorization: Bearer xxx` | ⭐ 简单 | token 可能在 Cookie 或 localStorage 里 |
 | `x-sign` / `x-bogus` / `_signature` 等签名头 | ⭐⭐⭐ 困难 | 需要逆向签名算法，建议换平台或用浏览器桥接方案 |
 
@@ -83,7 +83,7 @@ curl -s -X POST "第1步复制的完整URL" \
 
 ## 第 5 步：套模板（让 AI 替你写代码）
 
-复制 `services/doubao2api/` 整个目录作为起点（它是本仓库最干净的参考实现），
+复制 `services/doubao4api/` 整个目录作为起点（它是本仓库最干净的参考实现），
 只需要改 **4 个函数**，其余协议层全部复用：
 
 | 要改的函数 | 改什么 |
@@ -110,7 +110,7 @@ curl -s -X POST "第1步复制的完整URL" \
 "F12 → Network → 点开聊天请求 → Request Headers → 找到 Cookie → Copy value"），
 等我补齐材料后再继续写代码。
 
-请参照 web2api 仓库里 services/doubao2api/doubao2api.py 的结构，
+请参照 web4api 仓库里 services/doubao4api/doubao4api.py 的结构，
 帮我写出一个同样风格的服务：保留它的 /v1/messages、/v1/chat/completions、
 错误处理和 /admin/cookie 结构，只替换上游对接部分：
 - 上游 URL 与请求头

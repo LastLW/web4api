@@ -12,7 +12,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 SERVICES = os.path.join(BASE, "..", "services")
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-for sub in ("qwen2api", "doubao2api", "mimo2api"):
+for sub in ("qwen4api", "doubao4api", "mimo4api"):
     sys.path.insert(0, os.path.join(SERVICES, sub))
 
 FIXTURES = os.path.join(BASE, "fixtures")
@@ -24,18 +24,18 @@ def load(name):
 
 
 def test_qwen():
-    import qwen2api
+    import qwen4api
     lines = load("qwen_stream_sample.txt")
-    text, thinking, error = qwen2api.parse_qwen_stream_lines(lines)
+    text, thinking, error = qwen4api.parse_qwen_stream_lines(lines)
     assert not error, f"不应有错误: {error}"
     assert "ping" in text, f"正文应包含 ping，实际: {text[:100]!r}"
     print(f"✅ qwen 解析器: {text[:50]!r}")
 
 
 def test_qwen_expert_thinking():
-    import qwen2api
+    import qwen4api
     lines = load("qwen_expert_stream.txt")
-    text, thinking, error = qwen2api.parse_qwen_stream_lines(lines)
+    text, thinking, error = qwen4api.parse_qwen_stream_lines(lines)
     assert not error, f"不应有错误: {error}"
     # 思考研究模式：bar_thinking 步骤应被解析为思考文本
     assert "bar_thinking" not in thinking or "【" in thinking
@@ -43,9 +43,9 @@ def test_qwen_expert_thinking():
 
 
 def test_doubao():
-    import doubao2api
+    import doubao4api
     lines = load("doubao_stream_sample.txt")
-    text, finished = doubao2api.parse_doubao_stream_lines(lines)
+    text, finished = doubao4api.parse_doubao_stream_lines(lines)
     assert finished, "流应正常结束"
     expected = "我是豆包，由字节跳动独立研发的人工智能。\n我可以陪你聊天、解答疑问，也能帮你构思文案、整理思路。"
     assert text == expected, f"正文不符:\n  实际: {text!r}\n  期望: {expected!r}"
@@ -53,10 +53,10 @@ def test_doubao():
 
 
 def test_mimo():
-    import mimo2api
+    import mimo4api
     lines = load("mimo_stream_sample.txt")
-    full = mimo2api.parse_mimo_stream_lines(lines)
-    thinking, answer = mimo2api.split_thinking(full)
+    full = mimo4api.parse_mimo_stream_lines(lines)
+    thinking, answer = mimo4api.split_thinking(full)
     assert thinking.strip() == 'The user asks "1+1=?" and wants only the number as an answer.', \
         f"思考内容不符: {thinking!r}"
     assert answer == "2", f"正文应为 2，实际: {answer!r}"
@@ -65,7 +65,7 @@ def test_mimo():
 
 def test_doubao_stream_msg_notify():
     """新版上游把首段正文放在 STREAM_MSG_NOTIFY 的 content.content_block 里。"""
-    import doubao2api
+    import doubao4api
     lines = [
         "event: SSE_ACK",
         'data: {"ack":1}',
@@ -79,32 +79,32 @@ def test_doubao_stream_msg_notify():
         "event: SSE_REPLY_END",
         'data: {"end_type":1}',
     ]
-    text, finished = doubao2api.parse_doubao_stream_lines(lines)
+    text, finished = doubao4api.parse_doubao_stream_lines(lines)
     assert text == "ok" and finished, (text, finished)
     print(f"✅ doubao STREAM_MSG_NOTIFY 解析: {text!r}")
 
 
 def test_doubao_captured_url_sanitized():
     """抓包 URL 里的 msToken / a_bogus 是一次性签名，复用会触发上游风控，必须丢弃。"""
-    import doubao2api
+    import doubao4api
     from urllib.parse import parse_qs
-    saved = (doubao2api.CHAT_URL, doubao2api.DEVICE_ID, doubao2api.FP, doubao2api.TEA_UUID)
+    saved = (doubao4api.CHAT_URL, doubao4api.DEVICE_ID, doubao4api.FP, doubao4api.TEA_UUID)
     try:
-        doubao2api.DEVICE_ID, doubao2api.FP, doubao2api.TEA_UUID = "dev", "fp", "tea"
-        doubao2api.CHAT_URL = ("https://www.doubao.com/chat/completion?aid=497858"
+        doubao4api.DEVICE_ID, doubao4api.FP, doubao4api.TEA_UUID = "dev", "fp", "tea"
+        doubao4api.CHAT_URL = ("https://www.doubao.com/chat/completion?aid=497858"
                                "&device_id=dev&fp=fp&tea_uuid=tea&msToken=stale"
                                "&a_bogus=stale&web_tab_id=old")
-        query = parse_qs(doubao2api.build_query())
+        query = parse_qs(doubao4api.build_query())
         assert "msToken" not in query and "a_bogus" not in query, query
         assert query["device_id"] == ["dev"], query
     finally:
-        (doubao2api.CHAT_URL, doubao2api.DEVICE_ID, doubao2api.FP, doubao2api.TEA_UUID) = saved
+        (doubao4api.CHAT_URL, doubao4api.DEVICE_ID, doubao4api.FP, doubao4api.TEA_UUID) = saved
     print("✅ doubao 抓包 URL 丢弃一次性签名参数")
 
 
 def test_tool_call_parsing():
     import importlib
-    for mod_name in ("qwen2api", "doubao2api", "mimo2api"):
+    for mod_name in ("qwen4api", "doubao4api", "mimo4api"):
         mod = importlib.import_module(mod_name)
         text = '前置说明\n<tool_call>{"name": "write_file", "arguments": {"path": "/a", "content": "hi"}}</tool_call>'
         clean, calls = mod.parse_tool_calls(text)

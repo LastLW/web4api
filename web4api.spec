@@ -1,7 +1,7 @@
 # -*- mode: python ; coding: utf-8 -*-
 from PyInstaller.utils.hooks import collect_all
 
-datas = [('D:/Software/AI-OPENAI/webchat2api-main/gateway/static', 'gateway/static'), ('D:/Software/AI-OPENAI/webchat2api-main/services/deepseek2api/deepseek2api.py', 'services/deepseek2api'), ('D:/Software/AI-OPENAI/webchat2api-main/services/doubao2api/doubao2api.py', 'services/doubao2api'), ('D:/Software/AI-OPENAI/webchat2api-main/services/mimo2api/mimo2api.py', 'services/mimo2api'), ('D:/Software/AI-OPENAI/webchat2api-main/services/qwen2api/qwen2api.py', 'services/qwen2api')]
+datas = [('D:/Software/AI-OPENAI/webchat2api-main/gateway/static', 'gateway/static'), ('D:/Software/AI-OPENAI/webchat2api-main/services/deepseek4api/deepseek4api.py', 'services/deepseek4api'), ('D:/Software/AI-OPENAI/webchat2api-main/services/doubao4api/doubao4api.py', 'services/doubao4api'), ('D:/Software/AI-OPENAI/webchat2api-main/services/mimo4api/mimo4api.py', 'services/mimo4api'), ('D:/Software/AI-OPENAI/webchat2api-main/services/qwen4api/qwen4api.py', 'services/qwen4api')]
 binaries = []
 hiddenimports = ['uvicorn.loops.auto', 'uvicorn.protocols.http.auto', 'uvicorn.protocols.http.h11_impl', 'uvicorn.protocols.websockets.auto', 'uvicorn.lifespan.on']
 tmp_ret = collect_all('playwright')
@@ -31,7 +31,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='web2api',
+    name='web4api',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

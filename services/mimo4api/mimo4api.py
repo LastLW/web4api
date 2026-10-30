@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""mimo2api - 小米 MiMo Studio(aistudio.xiaomimimo.com)逆向 → Anthropic / OpenAI 兼容 API
+"""mimo4api - 小米 MiMo Studio(aistudio.xiaomimimo.com)逆向 → Anthropic / OpenAI 兼容 API
 
 凭证：浏览器登录后的完整 Cookie（含 httpOnly 的 serviceToken）。
 首次配置推荐仓库根目录 setup_wizard.py，或手动填 config.json。
@@ -53,7 +53,7 @@ THINK_RE = re.compile(r"-(think|thinking)$", re.I)
 TOOL_CALL_RE = re.compile(r"<tool_call>\s*(\{.*?\})\s*</tool_call>", re.S)
 THINK_SPLIT_RE = re.compile(r"<think>\x00?(.*?)</think>\x00?", re.S)
 
-app = FastAPI(title="mimo2api")
+app = FastAPI(title="mimo4api")
 
 
 # ============ 统一错误 / 鉴权 / 限速 ============
@@ -359,7 +359,7 @@ def sse(obj: dict) -> str:
 
 @app.get("/")
 async def health():
-    return {"service": "mimo2api", "version": "1.2", "status": "ok",
+    return {"service": "mimo4api", "version": "1.2", "status": "ok",
             "cookie_configured": bool(STATE["cookie"]),
             "chat_url_captured": bool(CHAT_URL)}
 

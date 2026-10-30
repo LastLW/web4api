@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""web2api 统一管理台 —— 配置、路径与平台元数据。
+"""web4api 统一管理台 —— 配置、路径与平台元数据。
 
 本模块不依赖 FastAPI，方便被管理台、浏览器抓包和测试共用。
 """
@@ -31,8 +31,8 @@ SERVICE_SPECS = {
         "short": "Qwen",
         "icon": "千",
         "accent": "#7c6cff",
-        "dir": "qwen2api",
-        "script": "qwen2api.py",
+        "dir": "qwen4api",
+        "script": "qwen4api.py",
         "port": 8301,
         "default_model": "qwen3.7",
         "models": ["qwen3.7", "qwen3.8-max", "qwen3.7-max", "qwen3.6-flash"],
@@ -56,8 +56,8 @@ SERVICE_SPECS = {
         "short": "Doubao",
         "icon": "豆",
         "accent": "#2fb7ff",
-        "dir": "doubao2api",
-        "script": "doubao2api.py",
+        "dir": "doubao4api",
+        "script": "doubao4api.py",
         "port": 8302,
         "default_model": "doubao-web",
         "models": ["doubao-web", "doubao-web-expert"],
@@ -85,8 +85,8 @@ SERVICE_SPECS = {
         "short": "MiMo",
         "icon": "米",
         "accent": "#ff8a3d",
-        "dir": "mimo2api",
-        "script": "mimo2api.py",
+        "dir": "mimo4api",
+        "script": "mimo4api.py",
         "port": 8303,
         "default_model": "mimo-v2.5-pro",
         "models": ["mimo-v2.5-pro", "mimo-v2.5", "mimo-web"],
@@ -110,8 +110,8 @@ SERVICE_SPECS = {
         "short": "DeepSeek",
         "icon": "DS",
         "accent": "#35d0a0",
-        "dir": "deepseek2api",
-        "script": "deepseek2api.py",
+        "dir": "deepseek4api",
+        "script": "deepseek4api.py",
         "port": 8304,
         "default_model": "deepseek-v4-flash",
         "models": [
@@ -211,7 +211,7 @@ def load_manager_config(create: bool = True) -> dict:
             changed = True
 
     ensure("port", 8400)
-    ensure("unified_key", gen_key("sk-web2api"))
+    ensure("unified_key", gen_key("sk-web4api"))
     ensure("auto_open_browser", True)
     ensure("stop_children_on_exit", False)
     if changed and create:
@@ -461,7 +461,7 @@ def model_to_service(model: str | None) -> str:
 
 def browser_candidates() -> list[dict]:
     """返回本机可用的 Chromium 内核浏览器，优先 Edge/Chrome。"""
-    env_path = os.environ.get("WEB2API_BROWSER_PATH", "").strip()
+    env_path = os.environ.get("WEB4API_BROWSER_PATH", "").strip()
     candidates = []
     if env_path:
         candidates.append({"name": "自定义浏览器", "path": env_path})

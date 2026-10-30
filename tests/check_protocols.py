@@ -49,10 +49,10 @@ def load_channels():
     """返回 [(名称, 端口, api_key, 默认模型, 跳过原因)]，未配置凭证的标记跳过。"""
     channels = []
     for name, default_model, token_mode in (
-        ("qwen2api", "qwen3.6-flash", False),
-        ("doubao2api", "doubao-web", False),
-        ("mimo2api", "mimo-v2.5-pro", False),
-        ("deepseek2api", "deepseek-v4-flash", True),
+        ("qwen4api", "qwen3.6-flash", False),
+        ("doubao4api", "doubao-web", False),
+        ("mimo4api", "mimo-v2.5-pro", False),
+        ("deepseek4api", "deepseek-v4-flash", True),
     ):
         cfg_path = os.path.join(ROOT, "services", name, "config.json")
         if not os.path.exists(cfg_path):

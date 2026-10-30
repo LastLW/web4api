@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""web2api 统一管理台启动器。
+"""web4api 统一管理台启动器。
 
 用法：
     python manager.py

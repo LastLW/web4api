@@ -1,5 +1,5 @@
 ﻿# -*- coding: utf-8 -*-
-"""web2api 统一管理台后端。
+"""web4api 统一管理台后端。
 
 启动：python manager.py
 或：  python gateway/app.py
@@ -50,7 +50,7 @@ async def lifespan(app: FastAPI):
     await capture.shutdown()
 
 
-app = FastAPI(title="web2api 统一管理台", version="1.0.0", lifespan=lifespan)
+app = FastAPI(title="web4api 统一管理台", version="1.0.0", lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -95,7 +95,7 @@ async def favicon():
 
 @app.get("/healthz")
 async def healthz():
-    return {"service": "web2api-manager", "status": "ok", "time": config.now_iso()}
+    return {"service": "web4api-manager", "status": "ok", "time": config.now_iso()}
 
 
 # ---------------------------------------------------------------------------
@@ -599,7 +599,7 @@ async def settings_patch(body: dict):
 
 @app.post("/api/settings/rotate-unified-key")
 async def rotate_unified_key():
-    key = config.gen_key("sk-web2api")
+    key = config.gen_key("sk-web4api")
     config.update_manager_config(unified_key=key)
     return {"ok": True, "unified_key": key}
 
@@ -623,7 +623,7 @@ def main(argv: list[str] | None = None):
     import uvicorn
 
     mgr = config.load_manager_config()
-    parser = argparse.ArgumentParser(description="web2api 统一管理台")
+    parser = argparse.ArgumentParser(description="web4api 统一管理台")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=int(mgr.get("port", 8400)))
     parser.add_argument("--no-open", action="store_true")
@@ -636,7 +636,7 @@ def main(argv: list[str] | None = None):
             import urllib.request
             with urllib.request.urlopen(f"http://127.0.0.1:{port}/healthz", timeout=1.5) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
-            if data.get("service") == "web2api-manager":
+            if data.get("service") == "web4api-manager":
                 print(f"管理台已经在运行：http://127.0.0.1:{port}/")
                 if not args.no_open:
                     webbrowser.open(f"http://127.0.0.1:{port}/")
@@ -651,7 +651,7 @@ def main(argv: list[str] | None = None):
 
     url = f"http://127.0.0.1:{port}/"
     print("=" * 58)
-    print("  web2api 统一管理台")
+    print("  web4api 统一管理台")
     print(f"  管理页面 : {url}")
     print(f"  统一入口 : {url}v1")
     print("  提示     : 关闭本窗口不会自动停止已启动的服务")

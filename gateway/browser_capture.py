@@ -386,7 +386,7 @@ class CaptureManager:
                 raise RuntimeError(
                     f"无法启动浏览器：{second}\n"
                     "请关闭残留的登录浏览器窗口后重试，"
-                    "或设置环境变量 WEB2API_BROWSER_PATH 指向 msedge.exe，"
+                    "或设置环境变量 WEB4API_BROWSER_PATH 指向 msedge.exe，"
                     "或执行 python -m playwright install chromium") from second
 
         pages = session.context.pages
