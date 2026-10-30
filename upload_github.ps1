@@ -1,9 +1,9 @@
 # One-click upload to GitHub (LastLW/web4api)
 # Usage:
-#   .\upload_github.ps1          normal push
-#   .\upload_github.ps1 -Force   force push (overwrite remote, e.g. remote has a README)
+#   .\upload_github.ps1            force push (default — overwrites remote, e.g. the README created on GitHub)
+#   .\upload_github.ps1 -NoForce   normal push (fails if remote already has commits)
 # Token source (first match wins): $env:GITHUB_TOKEN  ->  .github_token  ->  manual prompt
-param([switch]$Force)
+param([switch]$NoForce)
 
 $RepoUrl = "https://github.com/LastLW/web4api.git"
 $User = "LastLW"
@@ -52,15 +52,15 @@ if (git status --porcelain) {
 # ---- 6. push (token via HTTP header, never stored in .git/config) ----
 $b64 = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes("${User}:$token"))
 $branch = git rev-parse --abbrev-ref HEAD
-if ($Force) {
-    git -c http.extraheader="Authorization: Basic $b64" push --force origin "${branch}:main"
-} else {
+if ($NoForce) {
     git -c http.extraheader="Authorization: Basic $b64" push -u origin "${branch}:main"
+} else {
+    git -c http.extraheader="Authorization: Basic $b64" push --force origin "${branch}:main"
 }
-if ($LASTEXITCODE -ne 0 -and -not $Force) {
+if ($LASTEXITCODE -ne 0 -and $NoForce) {
     Write-Host ""
-    Write-Host "[!] Push rejected? If the remote repo already has commits (e.g. a README), run:"
-    Write-Host "    .\upload_github.ps1 -Force"
+    Write-Host "[!] Push rejected? The remote already has commits (e.g. its README). Run without -NoForce:"
+    Write-Host "    .\upload_github.ps1"
     exit 1
 }
 Write-Host ""

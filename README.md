@@ -313,8 +313,8 @@ web4api/
 Windows 上一键上传（脚本自带泄密检查，token 存在 gitignore 的 `.github_token` 里）：
 
 ```powershell
-.\upload_github.ps1          # 普通上传
-.\upload_github.ps1 -Force   # 远程仓库已有提交时强推
+.\upload_github.ps1            # 默认强推，会覆盖 GitHub 建仓时生成的 README
+.\upload_github.ps1 -NoForce   # 普通推送（远程已有提交时会失败）
 ```
 
 手动发布：
