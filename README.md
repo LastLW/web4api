@@ -32,6 +32,34 @@ LobeChat 等客户端。
 
 ---
 
+## 获取代码与更新
+
+**首次拉取**（建议用 `git clone`，不要下 ZIP，否则没法增量更新）：
+
+```bash
+git clone https://github.com/LastLW/web4api.git
+cd web4api
+```
+
+**之后更新到最新版**（一条命令）：
+
+```powershell
+.\pull_github.ps1
+```
+
+等价于 `git pull --ff-only origin main`。脚本会告诉你更新了哪几个 commit，
+如果本地改过文件导致冲突，它会给出手动处理提示（`git stash` 后再拉）。
+
+> 🔒 更新不会覆盖你的凭证：各服务的 `config.json`、`gateway/config.json`、
+> `gateway/browser_data/` 全部在 `.gitignore` 里，`git pull` 不会碰它们。
+>
+> ⚠️ 更新代码后需要重启 `manager.py` 才会生效；已启动的通道建议在管理台里逐个停止再启动。
+
+直接下载 ZIP 的用户没有 `.git` 目录，脚本会提示改用 `git clone`；只能重新下载覆盖，
+但记得别覆盖自己的 `config.json`。
+
+---
+
 ## 最快上手：统一管理台（推荐）
 
 一个页面管理四个通道：启动/停止服务、浏览器登录抓凭证、查看日志、测试对话，
