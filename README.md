@@ -1,4 +1,4 @@
-# web2api · 网页版逆向 API 本地中转
+# web4api · 网页版逆向 API 本地中转
 
 把 **DeepSeek / 千问 / 豆包 / 小米 MiMo** 四家网页版聊天逆向为本地 API 服务，
 统一对外提供 **Anthropic 协议（`/v1/messages`）** 与 **OpenAI 协议（`/v1/chat/completions`）**，
@@ -236,7 +236,7 @@ MiMo 的思考内容自动解析：Anthropic 输出为 `thinking` 块，OpenAI �
 ## 目录结构
 
 ```
-web2api/
+web4api/
 ├── manager.py               一键启动统一管理台
 ├── gateway/                 统一管理台（FastAPI + 原生前端）
 │   ├── app.py               页面与全部管理 API
@@ -322,8 +322,8 @@ Windows 上一键上传（脚本自带泄密检查，token 存在 gitignore 的 
 ```bash
 git init
 git add .
-git commit -m "web2api: 网页版逆向 API 本地中转（DeepSeek/千问/豆包/MiMo）"
-git remote add origin https://github.com/<你的用户名>/web2api.git
+git commit -m "web4api: 网页版逆向 API 本地中转（DeepSeek/千问/豆包/MiMo）"
+git remote add origin https://github.com/<你的用户名>/web4api.git
 git branch -M main
 git push -u origin main
 ```
